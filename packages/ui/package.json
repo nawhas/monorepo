@@ -14,8 +14,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "tamagui-config": "workspace:*",
-    "tamagui": "^1.126.1"
+    "@tamagui/toast": "^1.126.1",
+    "tamagui": "^1.126.1",
+    "tamagui-config": "workspace:*"
   },
   "devDependencies": {
     "@tamagui/build": "^1.126.1"

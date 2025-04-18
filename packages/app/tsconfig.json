@@ -1,0 +1,14 @@
+{
+  "extends": "../typescript-config/base.json",
+  "include": ["**/*.ts", "**/*.tsx"],
+  "compilerOptions": {
+    "composite": true,
+    "incremental": true,
+    "jsx": "react-jsx",
+    "paths": {
+      "app/*": ["./packages/app/*"],
+      "tamagui-config/*": ["./packages/tamagui-config/*"]
+    }
+  },
+  "references": []
+}
