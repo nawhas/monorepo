@@ -1,8 +1,10 @@
 {
-  "extends": "@repo/typescript-config/react-library.json",
+  "extends": "../typescript-config/base.json",
+  "include": ["**/*.ts", "**/*.tsx", "../tamagui-config/src/tamagui.config.ts"],
   "compilerOptions": {
-    "outDir": "dist"
+    "composite": true,
+    "incremental": true,
+    "jsx": "react-jsx"
   },
-  "include": ["src"],
-  "exclude": ["node_modules", "dist"]
+  "references": []
 }
