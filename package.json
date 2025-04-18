@@ -10,9 +10,11 @@
     "clean": "find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +"
   },
   "dependencies": {
-    "@tamagui/cli": "^1.126.1"
+    "@tamagui/cli": "^1.126.1",
+    "react": "^19"
   },
   "devDependencies": {
+    "@types/react": "^19",
     "prettier": "^3.5.3",
     "turbo": "^2.5.0",
     "typescript": "5.8.2"

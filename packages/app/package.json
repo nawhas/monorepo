@@ -17,7 +17,7 @@
     "@tamagui/shorthands": "^1.126.1",
     "@tamagui/themes": "^1.126.1",
     "expo-constants": "^17.0.8",
-    "react-native": "^0.79.1",
+    "react-native": "^0.79",
     "react-native-safe-area-context": "^5.4.0",
     "solito": "^4.4.1",
     "tamagui-config": "workspace:*"
