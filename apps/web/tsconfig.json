@@ -5,14 +5,19 @@
       {
         "name": "next"
       }
-    ]
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "react-native": ["node_modules/react-native-web"]
+    }
   },
   "include": [
     "**/*.ts",
     "**/*.tsx",
     "next-env.d.ts",
     "next.config.js",
-    ".next/types/**/*.ts"
+    ".next/types/**/*.ts",
+    "types/**/*.d.ts"
   ],
   "exclude": [
     "node_modules"
