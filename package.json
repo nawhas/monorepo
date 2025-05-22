@@ -8,6 +8,12 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "check-types": "turbo run check-types"
   },
+  "pnpm": {
+    "overrides": {
+      "react": "19.0.0",
+      "react-dom": "19.0.0"
+    }
+  },
   "devDependencies": {
     "prettier": "^3.5.3",
     "turbo": "^2.5.3",
