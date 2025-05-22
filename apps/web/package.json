@@ -17,8 +17,8 @@
     "@tamagui/next-plugin": "^1.126.13",
     "@tamagui/next-theme": "^1.126.13",
     "next": "^15.3.0",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "react-native-web": "^0.20.0",
     "tamagui": "^1.126.13"
   },
@@ -27,8 +27,8 @@
     "@repo/typescript-config": "workspace:*",
     "@tamagui/polyfill-dev": "^1.126.13",
     "@types/node": "^22.15.3",
-    "@types/react": "19.1.0",
-    "@types/react-dom": "19.1.1",
+    "@types/react": "19.0.0",
+    "@types/react-dom": "19.0.0",
     "babel-plugin-module-resolver": "^5.0.2",
     "eslint": "^9.27.0",
     "typescript": "5.8.2"
