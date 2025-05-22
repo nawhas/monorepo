@@ -36,6 +36,9 @@ importers:
       '@react-navigation/native':
         specifier: ^7.1.6
         version: 7.1.9(react-native@0.79.2(@babel/core@7.27.1)(@types/react@19.0.14)(react@19.0.0))(react@19.0.0)
+      '@repo/ui':
+        specifier: workspace:*
+        version: link:../../packages/ui
       '@tamagui/config':
         specifier: ^1.126.13
         version: 1.126.13(react-dom@19.0.0(react@19.0.0))(react-native-reanimated@3.17.5(@babel/core@7.27.1)(react-native@0.79.2(@babel/core@7.27.1)(@types/react@19.0.14)(react@19.0.0))(react@19.0.0))(react-native@0.79.2(@babel/core@7.27.1)(@types/react@19.0.14)(react@19.0.0))(react@19.0.0)
@@ -139,6 +142,9 @@ importers:
 
   apps/web:
     dependencies:
+      '@repo/ui':
+        specifier: workspace:*
+        version: link:../../packages/ui
       '@tamagui/config':
         specifier: ^1.126.13
         version: 1.126.13(react-dom@19.0.0(react@19.0.0))(react-native-reanimated@3.17.5(@babel/core@7.27.1)(react-native@0.79.2(@babel/core@7.27.1)(@types/react@19.0.0)(react@19.0.0))(react@19.0.0))(react-native@0.79.2(@babel/core@7.27.1)(@types/react@19.0.0)(react@19.0.0))(react@19.0.0)
@@ -232,6 +238,40 @@ importers:
         version: 8.32.1(eslint@9.27.0)(typescript@5.8.3)
 
   packages/typescript-config: {}
+
+  packages/ui:
+    dependencies:
+      '@tamagui/core':
+        specifier: ^1.126.13
+        version: 1.126.13(react-dom@19.0.0(react@19.0.0))(react-native@0.79.2(@babel/core@7.27.1)(@types/react@19.0.0)(react@19.0.0))(react@19.0.0)
+      react:
+        specifier: 19.0.0
+        version: 19.0.0
+      react-dom:
+        specifier: 19.0.0
+        version: 19.0.0(react@19.0.0)
+      tamagui:
+        specifier: ^1.126.13
+        version: 1.126.13(@types/react@19.0.0)(react-dom@19.0.0(react@19.0.0))(react-native@0.79.2(@babel/core@7.27.1)(@types/react@19.0.0)(react@19.0.0))(react@19.0.0)
+    devDependencies:
+      '@repo/eslint-config':
+        specifier: workspace:*
+        version: link:../eslint-config
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../typescript-config
+      '@types/react':
+        specifier: 19.0.0
+        version: 19.0.0
+      '@types/react-dom':
+        specifier: 19.0.0
+        version: 19.0.0
+      eslint:
+        specifier: ^9.27.0
+        version: 9.27.0
+      typescript:
+        specifier: 5.8.2
+        version: 5.8.2
 
 packages:
 

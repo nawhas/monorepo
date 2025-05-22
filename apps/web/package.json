@@ -11,6 +11,7 @@
     "check-types": "tsc --noEmit"
   },
   "dependencies": {
+    "@repo/ui": "workspace:*",
     "@tamagui/config": "^1.126.13",
     "@tamagui/core": "^1.126.13",
     "@tamagui/next-plugin": "^1.126.13",

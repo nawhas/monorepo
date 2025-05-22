@@ -7,6 +7,7 @@ const nextConfig = {
         'tamagui',
         '@tamagui/config',
         '@tamagui/next-theme',
+        '@repo/ui',
     ],
     typescript: {
         ignoreBuildErrors: true,
@@ -15,7 +16,7 @@ const nextConfig = {
 
 const tamaguiPlugin = withTamagui({
   config: './tamagui.config.ts',
-  components: ['tamagui'],
+  components: ['tamagui', '@repo/ui'],
   appDir: true,
 })
 

@@ -1,11 +1,9 @@
 'use client'
 
-import { Button } from 'tamagui'
+import { HomeScreen } from '@repo/ui';
 
 export default function Home() {
   return (
-    <>
-      <Button>Hello world!</Button>
-    </>
+    <HomeScreen />
   )
 }
