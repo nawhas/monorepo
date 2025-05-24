@@ -5,15 +5,30 @@ import '@tamagui/core/reset.css'
 // import '@tamagui/font-inter/css/700.css'
 import '@tamagui/polyfill-dev'
 
-import { ReactNode } from 'react'
+import { ReactNode, useEffect, useState } from 'react'
+// @ts-ignore
 import { StyleSheet } from 'react-native'
 import { useServerInsertedHTML } from 'next/navigation'
 import { NextThemeProvider, useRootTheme } from '@tamagui/next-theme'
 import { TamaguiProvider } from 'tamagui'
 import tamaguiConfig from '../tamagui.config'
 
-export const NextTamaguiProvider = ({ children }: { children: ReactNode }) => {
+interface NextTamaguiProviderProps {
+  children: ReactNode;
+  defaultTheme?: string;
+}
+
+export const NextTamaguiProvider = ({ 
+  children, 
+  defaultTheme = 'dark' 
+}: NextTamaguiProviderProps) => {
   const [theme, setTheme] = useRootTheme()
+  const [isMounted, setIsMounted] = useState(false)
+
+  // Ensure theme application only happens on client
+  useEffect(() => {
+    setIsMounted(true)
+  }, [])
 
   useServerInsertedHTML(() => {
     // @ts-ignore
@@ -40,13 +55,19 @@ export const NextTamaguiProvider = ({ children }: { children: ReactNode }) => {
   return (
     <NextThemeProvider
       skipNextHead
-      // change default theme (system) here:
-      // defaultTheme="light"
       onChangeTheme={(next) => {
-        setTheme(next as any)
+        if (isMounted) {
+          setTheme(next as any)
+        }
       }}
+      defaultTheme={defaultTheme}
     >
-      <TamaguiProvider config={tamaguiConfig} disableRootThemeClass defaultTheme={theme}>
+      <TamaguiProvider
+        config={tamaguiConfig}
+        defaultTheme={defaultTheme}
+        disableInjectCSS
+        disableRootThemeClass={!isMounted}
+      >
         {children}
       </TamaguiProvider>
     </NextThemeProvider>

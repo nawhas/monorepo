@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@tamagui/core": "^1.126.13",
+    "@tamagui/shorthands": "^1.126.13",
+    "@tamagui/themes": "^1.126.13",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "tamagui": "^1.126.13"

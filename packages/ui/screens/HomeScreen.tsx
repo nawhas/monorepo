@@ -1,3 +1,5 @@
+"use client"
+
 import React from 'react'
 import { YStack, ScrollView } from 'tamagui'
 import { RecitersSection } from '../components/reciters'
@@ -33,7 +35,7 @@ export const HomeScreen = () => {
 
   return (
     <ScrollView>
-      <YStack flex={1} padding="$4" space="$8" backgroundColor="#000">
+      <YStack flex={1} space="$8" backgroundColor="$background" width="100%">
         {/* Hero Section */}
         <HeroSection 
           title="Welcome to Nawhas"
