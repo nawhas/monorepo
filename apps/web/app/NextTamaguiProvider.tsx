@@ -11,16 +11,16 @@ import { StyleSheet } from 'react-native'
 import { useServerInsertedHTML } from 'next/navigation'
 import { NextThemeProvider, useRootTheme } from '@tamagui/next-theme'
 import { TamaguiProvider } from 'tamagui'
-import tamaguiConfig from '../tamagui.config'
+import { tamaguiConfig } from '@repo/ui'
 
 interface NextTamaguiProviderProps {
   children: ReactNode;
   defaultTheme?: string;
 }
 
-export const NextTamaguiProvider = ({ 
-  children, 
-  defaultTheme = 'dark' 
+export const NextTamaguiProvider = ({
+  children,
+  defaultTheme = 'dark'
 }: NextTamaguiProviderProps) => {
   const [theme, setTheme] = useRootTheme()
   const [isMounted, setIsMounted] = useState(false)
@@ -68,7 +68,7 @@ export const NextTamaguiProvider = ({
         disableInjectCSS
         disableRootThemeClass={!isMounted}
       >
-        {children}
+          {children}
       </TamaguiProvider>
     </NextThemeProvider>
   )

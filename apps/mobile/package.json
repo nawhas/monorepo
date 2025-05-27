@@ -43,8 +43,7 @@
     "react-native-screens": "~4.10.0",
     "react-native-web": "~0.20.0",
     "react-native-webview": "13.13.5",
-    "tamagui": "^1.126.13",
-    "v4": "link:@tamagui/config/v4"
+    "tamagui": "^1.126.13"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",

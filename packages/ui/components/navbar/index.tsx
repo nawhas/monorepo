@@ -1,89 +1,124 @@
 "use client"
 
-import { Button, View, XStack, useMedia, Text } from "tamagui";
-import { useState, useEffect } from "react";
-import { Logo } from "./Logo";
-import { MobileMenu } from "./MobileMenu";
-import { NavbarLink } from "./NavbarLink";
-import { Container } from "../layout/Container";
+import { useState } from "react";
+import { Button, H3, Text, useMedia, XStack, YStack, Popover } from "tamagui";
+
+const navItems = [
+  { name: 'Home', href: '/' },
+  { name: 'Browse', href: '/reciters' },
+  { name: 'Library', href: '/library' },
+  { name: 'About', href: '/about' },
+];
 
 export function Navbar() {
+  const [isDrawerOpen, setDrawerOpen] = useState(false);
+  const closeDrawer = () => setDrawerOpen(false);
   const media = useMedia();
-  const [isMounted, setIsMounted] = useState(false);
-  
-  // Only use media queries after component is mounted on the client
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-  
-  // Define fallback layout for server-rendering and initial client render
-  // This helps prevent layout shifts during hydration
-  const showMobileMenu = isMounted ? !media.gtSm : false;
-  const showDesktopMenu = isMounted ? media.gtSm : true;
-  
+  const isMobile = media.ltMd;
+
   return (
     <XStack
-      backgroundColor="$background"
-      borderBottomColor="$borderColor"
+      height={60}
+      alignItems="center"
+      justifyContent="space-between"
+      paddingHorizontal="$4"
       borderBottomWidth={1}
-      width="100%"
-      justifyContent="center"
+      borderBottomColor="$borderColor"
+      backgroundColor="$background"
+      zIndex={10}
     >
-      <Container>
-        <XStack
-          paddingVertical="$2"
-          justifyContent="space-between"
-          alignItems="center"
-          width="100%"
-        >
-          <XStack space="$4" alignItems="center">
-            <Logo />
-
-            {/* Desktop navigation links - only show on medium screens and above */}
-            {showDesktopMenu && (
-              <XStack space="$4" alignItems="center">
-                <NavbarLink href="/" label="Home" />
-                <NavbarLink href="/browse" label="Browse" />
-                <NavbarLink href="/library" label="Library" />
-                <NavbarLink href="/about" label="About" />
-              </XStack>
-            )}
-          </XStack>
-
-          <XStack space="$4" alignItems="center">
-            {/* Search icon can be shown on all screens */}
+      {isMobile && (
+        <H3 color="$color" onPress={() => console.log('Navigate to Home')}>N</H3>
+      )}
+      {!isMobile && (
+        <H3 color="$color" onPress={() => console.log('Navigate to Home')}>Nawhas.com</H3>
+      )}
+      {/* Desktop Navigation */}
+      {!isMobile && (
+        <XStack space="$3" alignItems="center">
+          {navItems.map((item) => (
             <Button
-              size="$3"
-              circular
-              icon={<SearchIcon />}
-              transparent
-            />
-
-            {/* Profile icon can be shown on all screens */}
-            <Button
-              size="$3"
-              circular
-              icon={<UserIcon />}
-              transparent
-            />
-
-            {/* Mobile menu button - only show on small screens */}
-            {showMobileMenu && <MobileMenu />}
-          </XStack>
+              key={item.name}
+              onPress={() => {
+                console.log(`Navigating to ${item.name}`);
+              }}
+              chromeless
+              paddingHorizontal="$3"
+              paddingVertical="$2"
+            >
+              <Text color="$color" fontSize="$4"> {item.name}</Text>
+            </Button>
+          ))}
         </XStack>
-      </Container>
+      )}
+
+      {/* Mobile Navigation */}
+      {isMobile && (
+        <Popover
+          open={isDrawerOpen}
+          onOpenChange={setDrawerOpen}
+          placement="bottom-end"
+        >
+          <Popover.Trigger asChild>
+            <Button
+              onPress={() => setDrawerOpen(!isDrawerOpen)}
+              circular
+              chromeless
+              padding="$2"
+            >
+              <Text fontSize={18} fontWeight="bold">
+                {isDrawerOpen ? "×" : "≡"}
+              </Text>
+            </Button>
+          </Popover.Trigger>
+
+          <Popover.Content
+            borderWidth={1}
+            borderColor="$borderColor"
+            enterStyle={{ y: -10, opacity: 0 }}
+            exitStyle={{ y: -10, opacity: 0 }}
+            animation="quick"
+            padding="$4"
+            backgroundColor="$background"
+          >
+            <YStack
+              width={250}
+              justifyContent="flex-start"
+              alignItems="stretch"
+              space="$3"
+            >
+              <H3 textAlign="center" marginBottom="$4">
+                Navigation
+              </H3>
+              {navItems.map((item) => (
+                <Button
+                  key={item.name}
+                  onPress={() => {
+                    console.log(`Navigating to ${item.name} from drawer`);
+                    closeDrawer();
+                    // Add navigation logic here
+                  }}
+                  theme="alt1" // A slightly different theme for drawer buttons
+                  size="$4"
+                  justifyContent="flex-start"
+                  paddingLeft="$2" // Align text to the left
+                >
+                  {item.name}
+                </Button>
+              ))}
+              <Button
+                onPress={closeDrawer}
+                marginTop="$5" // Push close button down
+                theme="active" // A more prominent theme for close
+                aria-label="Close navigation drawer"
+              >
+                <Text marginRight="$2">×</Text>
+                Close
+              </Button>
+            </YStack>
+          </Popover.Content>
+        </Popover>
+      )}
     </XStack>
   );
 }
-
-// We need to define these components as they are referenced in the code
-function SearchIcon() {
-  return <Text>🔍</Text>;
-}
-
-function UserIcon() {
-  return <Text>👤</Text>;
-}
-
-export { NavbarLink } from "./NavbarLink";
-export { Logo } from "./Logo"; 

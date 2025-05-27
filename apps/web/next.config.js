@@ -18,7 +18,7 @@ const nextConfig = {
 };
 
 const tamaguiPlugin = withTamagui({
-  config: './tamagui.config.ts',
+  config: '@repo/ui/tamagui.config',
   components: ['tamagui', '@repo/ui'],
   appDir: true,
 })
