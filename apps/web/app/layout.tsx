@@ -1,5 +1,5 @@
 import { NextTamaguiProvider } from './NextTamaguiProvider'
-import { Navbar, Container } from '@repo/ui'
+import { MainLayout } from '@repo/ui'
 import './globals.css'
 
 export const metadata = {
@@ -22,12 +22,9 @@ export default function RootLayout({
       </head>
       <body suppressHydrationWarning>
         <NextTamaguiProvider defaultTheme="dark">
-          <Navbar />
-          <Container>
-            <main style={{ width: '100%' }}>
-              {children}
-            </main>
-          </Container>
+          <MainLayout>
+            {children}
+          </MainLayout>
         </NextTamaguiProvider>
       </body>
     </html>

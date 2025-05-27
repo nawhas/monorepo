@@ -7,6 +7,10 @@ declare module 'react-native' {
   export * from 'react-native-web';
 }
 
+declare module 'react-native-svg' {
+  export * from 'react-native-svg-web';
+}
+
 // Support for asset imports
 declare module '*.png';
 declare module '*.jpg';

@@ -17,6 +17,7 @@
     "@react-navigation/elements": "^2.3.8",
     "@react-navigation/native": "^7.1.6",
     "@repo/ui": "workspace:*",
+    "@tamagui/animations-css": "^1.126.13",
     "@tamagui/config": "^1.126.13",
     "@tamagui/shorthands": "^1.126.13",
     "@tamagui/themes": "^1.126.13",
